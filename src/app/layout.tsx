@@ -1,6 +1,7 @@
 import "./globals.css";
 import { ReactNode } from "react";
 import Head from "next/head";
+import Link from "next/link";
 
 export const metadata = {
   title: "Green Travel For All",
@@ -35,14 +36,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
         <header className="bg-green-700 text-white px-6 py-4 shadow-md">
           <nav className="flex justify-between items-center max-w-6xl mx-auto">
-            <a href="/" className="text-xl font-bold">
+            <Link href="/" className="text-xl font-bold">
               🌿 Green Travel For All
-            </a>
+            </Link>
             <ul className="flex space-x-6 text-sm font-medium">
-              <li><a href="/" className="hover:underline">Home</a></li>
-              <li><a href="/blog" className="hover:underline">Blog</a></li>
-              <li><a href="/about" className="hover:underline">About</a></li>
-              <li><a href="/contact" className="hover:underline">Contact</a></li>
+              <li><Link href="/" className="hover:underline">Home</Link></li>
+              <li><Link href="/blog" className="hover:underline">Blog</Link></li>
+              <li><Link href="/about" className="hover:underline">About</Link></li>
+              <li><Link href="/contact" className="hover:underline">Contact</Link></li>
             </ul>
           </nav>
         </header>
@@ -53,12 +54,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
         <footer className="bg-green-800 text-white text-sm px-6 py-6 mt-12">
           <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 gap-4">
-            <a href="/about" className="hover:underline">About</a>
-            <a href="/contact" className="hover:underline">Contact</a>
-            <a href="/privacy-policy" className="hover:underline">Privacy Policy</a>
-            <a href="/terms-of-use" className="hover:underline">Terms of Use</a>
-            <a href="/disclaimer" className="hover:underline">Affiliate Disclosure</a>
-            <a href="/blog" className="hover:underline">Blog</a>
+            <Link href="/about" className="hover:underline">About</Link>
+            <Link href="/contact" className="hover:underline">Contact</Link>
+            <Link href="/privacy-policy" className="hover:underline">Privacy Policy</Link>
+            <Link href="/terms-of-use" className="hover:underline">Terms of Use</Link>
+            <Link href="/disclaimer" className="hover:underline">Affiliate Disclosure</Link>
+            <Link href="/blog" className="hover:underline">Blog</Link>
           </div>
           <div className="text-center mt-4">&copy; {new Date().getFullYear()} GreenTravelForAll.org</div>
         </footer>

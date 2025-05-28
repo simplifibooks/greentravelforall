@@ -1,34 +1,72 @@
+'use client';
+
+import { useState } from 'react';
+
 export default function ContactPage() {
+  const [status, setStatus] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('Sending...');
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    const response = await fetch('https://formspree.io/f/mgeglwqa', {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: data,
+    });
+
+    if (response.ok) {
+      setStatus('Message sent successfully!');
+      form.reset();
+    } else {
+      setStatus('Failed to send message. Please try again.');
+    }
+  };
+
   return (
-    <section className="max-w-xl mx-auto space-y-6">
-      <h1 className="text-3xl font-bold text-green-800">Contact Us</h1>
-      <p>
-        Have a question, tip, or idea? We'd love to hear from you. Fill out the form below and we’ll get back to you soon.
+    <main className="max-w-2xl mx-auto px-4 py-12">
+      <h1 className="text-4xl font-bold text-green-800 mb-6">Contact Us</h1>
+      <p className="mb-8 text-gray-700">
+        Have questions or suggestions? We&apos;d love to hear from you!
       </p>
-      <form
-        action="https://formspree.io/f/xoqgkgjg"
-        method="POST"
-        className="space-y-4"
-      >
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label className="block font-medium text-sm text-gray-700">Name</label>
-          <input type="text" name="name" required className="w-full p-2 border rounded-md" />
+          <label className="block mb-1 text-sm font-medium text-gray-700">Name</label>
+          <input
+            required
+            name="name"
+            type="text"
+            className="w-full border border-gray-300 px-4 py-2 rounded-md shadow-sm"
+          />
         </div>
         <div>
-          <label className="block font-medium text-sm text-gray-700">Email</label>
-          <input type="email" name="email" required className="w-full p-2 border rounded-md" />
+          <label className="block mb-1 text-sm font-medium text-gray-700">Email</label>
+          <input
+            required
+            name="email"
+            type="email"
+            className="w-full border border-gray-300 px-4 py-2 rounded-md shadow-sm"
+          />
         </div>
         <div>
-          <label className="block font-medium text-sm text-gray-700">Message</label>
-          <textarea name="message" rows={4} required className="w-full p-2 border rounded-md"></textarea>
+          <label className="block mb-1 text-sm font-medium text-gray-700">Message</label>
+          <textarea
+            required
+            name="message"
+            rows={5}
+            className="w-full border border-gray-300 px-4 py-2 rounded-md shadow-sm"
+          ></textarea>
         </div>
         <button
           type="submit"
-          className="bg-green-700 text-white px-4 py-2 rounded-md hover:bg-green-800"
+          className="bg-green-700 text-white px-6 py-2 rounded hover:bg-green-800 transition"
         >
           Send Message
         </button>
       </form>
-    </section>
+      {status && <p className="mt-4 text-sm text-gray-600">{status}</p>}
+    </main>
   );
 }

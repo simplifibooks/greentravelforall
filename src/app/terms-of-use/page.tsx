@@ -1,16 +1,19 @@
 export default function TermsOfUsePage() {
   return (
-    <section className="space-y-6">
-      <h1 className="text-3xl font-bold text-green-800">Terms of Use</h1>
-      <p>
-        By using GreenTravelForAll.org, you agree to use this site responsibly. You may not copy or redistribute content without permission.
+    <main className="max-w-3xl mx-auto px-4 py-12">
+      <h1 className="text-4xl font-bold text-green-800 mb-4">Terms of Use</h1>
+      <p className="text-gray-700 mb-4">
+        By accessing and using GreenTravelForAll.org, you agree to be bound by the following terms and conditions. If you do not agree with any part of these terms, please discontinue use of the website.
       </p>
-      <p>
-        All external links, including affiliate links, are provided as-is. We are not liable for the content or reliability of third-party websites.
+      <p className="text-gray-700 mb-4">
+        This website provides informational content, affiliate recommendations, and third-party links. We make no guarantees regarding the accuracy, completeness, or timeliness of any content provided.
       </p>
-      <p>
-        We reserve the right to update these terms at any time. Continued use of the site constitutes your agreement to the current terms.
+      <p className="text-gray-700 mb-4">
+        You may not use this site for any unlawful purpose or in any way that could damage or impair the site or interfere with others’ use.
       </p>
-    </section>
+      <p className="text-gray-700">
+        These terms may be updated periodically. Your continued use of the site constitutes acceptance of any changes.
+      </p>
+    </main>
   );
 }

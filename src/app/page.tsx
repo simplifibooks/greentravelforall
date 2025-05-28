@@ -1,4 +1,6 @@
-// C:\Users\wjohnson\Documents\GreenTravel Website FIles\greentravelforall\src\app\page.tsx
+import Link from "next/link";
+import Image from "next/image";
+
 export default function Home() {
   return (
     <div className="space-y-12">
@@ -10,19 +12,21 @@ export default function Home() {
           Discover sustainable, accessible, and inclusive ways to explore the world — while giving back to the planet and people along the way.
         </p>
         <div className="flex justify-center gap-4 mt-4">
-          <a href="/blog" className="bg-green-700 text-white px-6 py-2 rounded-xl hover:bg-green-800">
+          <Link href="/blog" className="bg-green-700 text-white px-6 py-2 rounded-xl hover:bg-green-800">
             Explore Blog
-          </a>
-          <a href="/contact" className="border border-green-700 text-green-700 px-6 py-2 rounded-xl hover:bg-green-100">
+          </Link>
+          <Link href="/contact" className="border border-green-700 text-green-700 px-6 py-2 rounded-xl hover:bg-green-100">
             Contact Us
-          </a>
+          </Link>
         </div>
       </section>
 
       <section>
-        <img
+        <Image
           src="/hero-green-travel.jpg"
           alt="Eco-conscious traveler overlooking a scenic view"
+          width={1200}
+          height={600}
           className="w-full h-auto rounded-xl shadow-md"
         />
       </section>
